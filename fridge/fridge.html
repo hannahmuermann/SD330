@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refrigerator Display with Footer</title>
+    <link rel="stylesheet" href="fridge.css">
+</head>
+<body>
+    <div class="container">
+        <div class="refrigerator-display">
+            <div class="display-content">
+                <div class="top-bar">
+                    <div class="clock" id="clock"></div>
+                    <div class="temperature">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                        <span id="temperature">4°C</span>
+                    </div>
+                    <button class="power-button" id="powerButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+                    </button>
+                </div>
+                <div class="main-display" id="mainDisplay">
+                    <h2>Fridge Interior</h2>
+                    <img src="https://cdn.airportappliance.com/media/magefan_blog/Beyond-the-Basics--Deep-Cleaning-Your-Refrigerator-Inside-and-Out-.jpg" alt="Fridge Interior">
+                </div>
+                <div class="control-buttons">
+                    <button class="control-button active" id="fridgeButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    </button>
+                    <button class="control-button" id="tvButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                    </button>
+                    <button class="control-button" id="browserButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>&copy; Hannah Muermann - 10/13/24</p>
+        </footer>
+    </div>
+    <script src="fridge.js"></script>
+</body>
+</html>
