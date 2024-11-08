@@ -19,7 +19,7 @@ body {
 }
 .refrigerator-display {
     width: 100%;
-    height: 480px;
+    height: 680px;
     background-color: #1f2937;
     border-radius: 16px;
     padding: 20px;
@@ -41,14 +41,19 @@ body {
     align-items: center;
     margin-bottom: 16px;
 }
-.clock {
-    font-size: 24px;
+.clock, .weather {
+    font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
 }
 .temperature {
     font-size: 20px;
     display: flex;
     align-items: center;
+}
+.temperature button {
+    margin-left: 5px;
+    cursor: pointer;
 }
 .power-button {
     background-color: #10b981;
@@ -74,7 +79,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    max-height: calc(100% - 70px);
+    max-height: calc(100% - 120px);
 }
 .main-display h2 {
     margin-top: 0;
@@ -90,6 +95,7 @@ body {
 .control-buttons {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 16px;
 }
 .control-button {
     background-color: #d1d5db;
@@ -105,6 +111,12 @@ body {
 .control-button.active {
     background-color: #3b82f6;
     color: white;
+}
+.timer, .shopping-list {
+    display: none;
+}
+.timer.active, .shopping-list.active {
+    display: block;
 }
 .footer {
     margin-top: auto;
