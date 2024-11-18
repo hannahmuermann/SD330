@@ -1,28 +1,35 @@
 <html>
-    <body>
-        <p id="info">
 
-        <script type = "module">
+<body>
+    <p id="info">
+
+        <script type="module">
             var htmlString = "<h2> An introduction to JSON files </h2> <p>";
 
-                // some test code to demonstrate variables
-                for (let i = 0; i < 10; i++) {
-                    htmlString += i;
-                }
+            // some test code to demonstrate variables
+            for (let i = 0; i < 10; i++) {
+                htmlString += i;
+            }
 
-                // Our first object
-                const course = { number: "330", title: "System Design", credits: 4 };
-                htmlString += "<p> The value of <b> course number </b> is " + course.number;
-                htmlString += "<br> The value of <b> title </b> is " + course.title;
-                htmlString += "<br> The value of <b> credits </b> is " + course.credits;
+            // Our first object
+            const course = { number: "330", title: "System Design", credits: 4 };
+            htmlString += "<p> The value of <b> course number </b> is " + course.number;
+            htmlString += "<br> The value of <b> title </b> is " + course.title;
+            htmlString += "<br> The value of <b> credits </b> is " + course.credits;
 
-                document.getElementById("info").innerHTML = htmlString;
+            htmlString += "<p> Fetching data from a JSON file!";
+            const response = await fetch("https://aptokash.github.io/SD330/12 SampleObjects.json");
+            const data = await response.json();
+            htmlString += "<br> The adult access is " + data["userTypes"]["adult"]["access"];
+
+            document.getElementById("info").innerHTML = htmlString;
 
         </script>
 
-        <footer>
-            <hr>
-            &copy; Hannah Muermann, 11/13/2024
-        </footer>
-    </body>
+    <footer>
+        <hr>
+        &copy; Hannah Muermann, 11/13/2024
+    </footer>
+</body>
+
 </html>

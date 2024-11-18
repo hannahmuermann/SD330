@@ -1,1 +1,134 @@
-Hello World from Hannah Muermann!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannah's GitHub Repository File List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://media.istockphoto.com/id/1329960632/vector/yellow-and-green-watercolor-background-for-spring.jpg?s=612x612&w=0&k=20&c=sl7US__tvveSaaX64tTG-O6LfA8MsriUkQtTiFvEx5Q=');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        footer {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://media.istockphoto.com/id/1329960632/vector/yellow-and-green-watercolor-background-for-spring.jpg?s=612x612&w=0&k=20&c=sl7US__tvveSaaX64tTG-O6LfA8MsriUkQtTiFvEx5Q=');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="me.jpg" class="picture">
+            <h1>Hannah's GitHub Repository</h1>
+            <p>Welcome to my SD330 repository! This is a clickable list of all files within it.</p>
+        </header>
+
+        <main>
+            <h2>Repository Files</h2>
+            <div id="files"></div>
+        </main>
+
+    </div>
+
+    <script>
+        async function fetchFileList() {
+            const response = await fetch("https://api.github.com/repos/hannahmuermann/SD330/contents/");
+            const data = await response.json();
+
+            let htmlString = "<ul>";
+
+            for (let file of data) {
+                const fname = file.name;
+                const fpath = `https://hannahmuermann.github.io/SD330/${fname}`;
+
+                htmlString += `<li><a href="${fpath}" target="_blank">${fname}</a></li>`;
+            }
+
+            htmlString += "</ul>";
+            document.getElementById('files').innerHTML = htmlString;
+        }
+
+        // Update the last updated date
+        function updateLastUpdated() {
+            const now = new Date();
+            document.getElementById('lastUpdated').textContent = now.toLocaleDateString();
+        }
+
+        // Call the functions when the page loads
+        window.onload = function () {
+            fetchFileList();
+            updateLastUpdated();
+        };
+    </script>
+</body>
+
+<footer>
+    &copy; Hannah Muermann - 11/17/24
+</footer>
+
+</html>
