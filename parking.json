@@ -1,0 +1,157 @@
+{
+    "parkingLots": [
+        {
+            "name": "Fontaine Lot",
+            "mapFile": "mapFontaine.jpg",
+            "totalSpaces": 50,
+            "comments": "N/A",
+            "location": "North End", 
+            "closestBuilding": "Fontaine",
+            "totalStudentSpaces": 25,
+            "spaces":
+             [
+                {
+                    "spaceId": 1,
+                    "type": "student",
+                    "status": "full",
+                    "handicap": true,
+                    "filledDate": "11/20/24",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 2,
+                    "type": "student",
+                    "status": "available",
+                    "handicap": true,
+                    "filledDate": "N/A",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 3,
+                    "type": "student",
+                    "status": "available",
+                    "handicap": false,
+                    "filledDate": "N/A",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 4,
+                    "type": "student",
+                    "status": "full",
+                    "handicap": false,
+                    "filledDate": "11/21/24",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 5,
+                    "type": "student",
+                    "status": "reserved",
+                    "handicap": false,
+                    "filledDate": "N/A",
+                    "reservedDate": "11/22/24"
+                },
+                {
+                    "spaceId": 6,
+                    "type": "student",
+                    "status": "full",
+                    "handicap": false,
+                    "filledDate": "11/20/24",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 7,
+                    "type": "faculty",
+                    "status": "full",
+                    "handicap": true,
+                    "filledDate": "11/20/24",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 8,
+                    "type": "faculty",
+                    "status": "full",
+                    "handicap": false,
+                    "filledDate": "11/21/24",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 9,
+                    "type": "faculty",
+                    "status": "available",
+                    "handicap": false,
+                    "filledDate": "N/A",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 10,
+                    "type": "faculty",
+                    "status": "available",
+                    "handicap": false,
+                    "filledDate": "N/A",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 11,
+                    "type": "faculty",
+                    "status": "available",
+                    "handicap": false,
+                    "filledDate": "N/A",
+                    "reservedDate": "N/A"
+                },
+                {
+                    "spaceId": 12,
+                    "type": "faculty",
+                    "status": "reserved",
+                    "handicap": false,
+                    "filledDate": "N/A",
+                    "reservedDate": "11/21/24"
+                }
+            ]
+        },
+        {
+            "name": "Dyson Lot",
+            "mapFile": "mapDyson.jpg",
+            "totalSpaces": 75,
+            "comments": "N/A",
+            "location": "North End", 
+            "closestBuilding": "Dyson",
+            "totalStudentSpaces": 0
+        },
+        {
+            "name": "Foy Lot",
+            "mapFile": "mapFoy.jpg",
+            "totalSpaces": 75,
+            "comments": "N/A",
+            "location": "North End", 
+            "closestBuilding": "Foy Townhouses",
+            "totalStudentSpaces": 0
+        },
+        {
+            "name": "Hoop Lot",
+            "mapFile": "mapHoop.jpg",
+            "totalSpaces": 100,
+            "comments": "N/A",
+            "location": "North End", 
+            "closestBuilding": "McCormick",
+            "totalStudentSpaces": 100
+        },
+        {
+            "name": "Upper West Lot",
+            "mapFile": "mapUpperWest.jpg",
+            "totalSpaces": 50,
+            "comments": "N/A",
+            "location": "East Campus", 
+            "closestBuilding": "Upper West Townhouses",
+            "totalStudentSpaces": 50
+        },
+        {
+            "name": "Lower West Lot",
+            "mapFile": "mapLowerWest.jpg",
+            "totalSpaces": 50,
+            "comments": "N/A",
+            "location": "East Campus", 
+            "closestBuilding": "Lower West Townhouses",
+            "totalStudentSpaces": 50
+        }
+    ]
+}
