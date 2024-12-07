@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lots - Marist College Parking</title>
+    <style>
+        :root {
+            --red: #C8102E;
+            --grey: #58595B;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        header {
+            background-color: var(--red);
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            color: var(--red);
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--grey);
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--red);
+            color: var(--white);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: var(--grey);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="parking.html">Home</a></li>
+                <li><a href="lots.html">Parking Lots</a></li>
+                <li><a href="404.html">Reserve a Spot</a></li>
+                <li><a href="404.html">My Account</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Marist College Parking Lots</h1>
+        <div id="loadingMessage">Loading parking lots data...</div>
+        <table id="lotsTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Total Spaces</th>
+                    <th>Student Spaces</th>
+                    <th>Location</th>
+                    <th>Closest Building</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table content will be dynamically populated -->
+            </tbody>
+        </table>
+        <div id="errorDetails"></div>
+    </main>
+
+    <script>
+        function populateLotsTable() {
+            const loadingMessage = document.getElementById('loadingMessage');
+            const lotsTable = document.getElementById('lotsTable');
+            const errorDetails = document.getElementById('errorDetails');
+    
+            // Show loading message initially
+            loadingMessage.style.display = 'block';
+            lotsTable.style.display = 'none';
+            errorDetails.style.display = 'none';
+    
+            // Fetch the parking.json file
+            fetch('parking.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Hide loading message and show the table
+                    loadingMessage.style.display = 'none';
+                    lotsTable.style.display = 'table';
+    
+                    // Populate the table with parking lot data
+                    const tableBody = lotsTable.querySelector('tbody');
+                    tableBody.innerHTML = ''; // Clear existing rows, if any
+                    data.parkingLots.forEach(lot => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${lot.name}</td>
+                            <td>${lot.totalSpaces}</td>
+                            <td>${lot.totalStudentSpaces}</td>
+                            <td>${lot.location}</td>
+                            <td>${lot.closestBuilding}</td>
+                            <td><a href="spaces.html?lot=${encodeURIComponent(lot.name)}">View Spaces</a></td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    // Display error message
+                    console.error('Error fetching parking lots data:', error);
+                    loadingMessage.style.display = 'none';
+                    lotsTable.style.display = 'none';
+                    errorDetails.style.display = 'block';
+                    errorDetails.innerHTML = `
+                        <p>Error loading parking lots data. Please try again later.</p>
+                        <p>Details: ${error.message}</p>
+                        <p>Make sure parking.json is in the same directory as this HTML file or adjust the fetch path.</p>
+                    `;
+                });
+        }
+    
+        // Wait for the DOM to be fully loaded before running the script
+        document.addEventListener('DOMContentLoaded', populateLotsTable);
+    </script>
+    
+
+</body>
+<footer>
+    <p>&copy; Created by Hannah Muermann 12-7-24</p>
+</footer>
+
+
+</html>

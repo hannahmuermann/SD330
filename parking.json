@@ -8,8 +8,7 @@
             "location": "North End", 
             "closestBuilding": "Fontaine",
             "totalStudentSpaces": 25,
-            "spaces":
-             [
+            "spaces": [
                 {
                     "spaceId": 1,
                     "type": "student",
@@ -155,3 +154,4 @@
         }
     ]
 }
+

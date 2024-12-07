@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Spaces - Marist College Parking</title>
+    <style>
+        :root {
+            --red: #C8102E;
+            --grey: #58595B;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: var(--black);
+        }
+        header {
+            background-color: var(--red);
+            padding: 1rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h1 {
+            color: var(--red);
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        th, td {
+            border: 1px solid var(--grey);
+            padding: 0.5rem;
+            text-align: left;
+        }
+        th {
+            background-color: var(--red);
+            color: var(--white);
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        footer {
+            background-color: var(--grey);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="parking.html">Home</a></li>
+                <li><a href="lots.html">Parking Lots</a></li>
+                <li><a href="404.html">Reserve a Spot</a></li>
+                <li><a href="404.html">My Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Parking Spaces for <span id="lotName"></span></h1>
+        <table id="spacesTable">
+            <thead>
+                <tr>
+                    <th>Space ID</th>
+                    <th>Type</th>
+                    <th>th>Type</th>
+                    <th>Status</th>
+                    <th>Handicap</th>
+                    <th>Filled Date</th>
+                    <th>Reserved Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table content will be dynamically populated -->
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Marist College Parking. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const parkingData = {
+            "parkingLots": [
+                {
+                    "name": "Fontaine Lot",
+                    "mapFile": "mapFontaine.jpg",
+                    "totalSpaces": 50,
+                    "comments": "N/A",
+                    "location": "North End", 
+                    "closestBuilding": "Fontaine",
+                    "totalStudentSpaces": 25,
+                    "spaces": [
+                        {
+                            "spaceId": 1,
+                            "type": "student",
+                            "status": "full",
+                            "handicap": true,
+                            "filledDate": "11/20/24",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 2,
+                            "type": "student",
+                            "status": "available",
+                            "handicap": true,
+                            "filledDate": "N/A",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 3,
+                            "type": "student",
+                            "status": "available",
+                            "handicap": false,
+                            "filledDate": "N/A",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 4,
+                            "type": "student",
+                            "status": "full",
+                            "handicap": false,
+                            "filledDate": "11/21/24",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 5,
+                            "type": "student",
+                            "status": "reserved",
+                            "handicap": false,
+                            "filledDate": "N/A",
+                            "reservedDate": "11/22/24"
+                        },
+                        {
+                            "spaceId": 6,
+                            "type": "student",
+                            "status": "full",
+                            "handicap": false,
+                            "filledDate": "11/20/24",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 7,
+                            "type": "faculty",
+                            "status": "full",
+                            "handicap": true,
+                            "filledDate": "11/20/24",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 8,
+                            "type": "faculty",
+                            "status": "full",
+                            "handicap": false,
+                            "filledDate": "11/21/24",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 9,
+                            "type": "faculty",
+                            "status": "available",
+                            "handicap": false,
+                            "filledDate": "N/A",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 10,
+                            "type": "faculty",
+                            "status": "available",
+                            "handicap": false,
+                            "filledDate": "N/A",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 11,
+                            "type": "faculty",
+                            "status": "available",
+                            "handicap": false,
+                            "filledDate": "N/A",
+                            "reservedDate": "N/A"
+                        },
+                        {
+                            "spaceId": 12,
+                            "type": "faculty",
+                            "status": "reserved",
+                            "handicap": false,
+                            "filledDate": "N/A",
+                            "reservedDate": "11/21/24"
+                        }
+                    ]
+                },
+                // Other parking lots data...
+            ]
+        };
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function populateSpacesTable() {
+            const lotName = getUrlParameter('lot');
+            document.getElementById('lotName').textContent = lotName;
+
+            const lot = parkingData.parkingLots.find(l => l.name === lotName);
+            if (lot && lot.spaces) {
+                const tableBody = document.querySelector('#spacesTable tbody');
+                lot.spaces.forEach(space => {
+                    const row = `
+                        <tr>
+                            <td>${space.spaceId}</td>
+                            <td>${space.type}</td>
+                            <td>${space.status}</td>
+                            <td>${space.handicap ? 'Yes' : 'No'}</td>
+                            <td>${space.filledDate}</td>
+                            <td>${space.reservedDate}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+            } else {
+                document.querySelector('main').innerHTML = '<p>No spaces found for this lot.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', populateSpacesTable);
+    </script>
+</body>
+</html>
+
